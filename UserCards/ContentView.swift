@@ -6,44 +6,34 @@
 //
 
 import SwiftUI
-//Struct principal donde unicamente damos el valor de las propiedades
 struct ContentView: View {
+    let libro = [
+        BookView(titulo: "harry potter", autor: "J.K Rowling", año: 1989, portada:"broom"),
+        BookView(titulo: "Building a Second Brain", autor: "Tiago Forte", año: 2019, portada:"book.fill")
+    ]
     var body: some View {
-        VStack(spacing: 20) {
-            UserView(nombre: "Benjamin", edad: 22, imagen: "person.circle.fill")
+        VStack {
             
-            UserView(nombre: "Franco", edad: 29, imagen: "person.circle.fill")
-            
-            UserView(nombre: "Barbara", edad: 39, imagen: "person.circle.fill")
-            
-            UserView(nombre: "Victor", edad: 19, imagen: "person.circle.fill")
         }
+        
         .padding()
     }
 }
-
-// struct del molde de los usuarios
-struct UserView: View{
-    let nombre : String
-    let edad: Int
-    let imagen: String
+//El molde con las propiedades
+struct BookView: View{
+    let titulo: String
+    let autor: String
+    let año: Int
+    let portada: String
     
-//Vista la interfaz
+//lo que saldra en la interfaz
     var body: some View{
         VStack{
-            Image(systemName:imagen)
-                .font(.system(size: 70, weight: .bold))
-                    .foregroundColor(.yellow)
-            
-            Text(nombre)
-                .font(.title)
-            
-            Text(String(edad))
-                .font(.headline)
-
-            
+            Text(titulo)
+            Text(autor)
+            Text(String(año))
+            Image(systemName:portada)
         }
-        .padding()
     }
 }
 
