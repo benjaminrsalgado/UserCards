@@ -11,8 +11,11 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
             UserView(nombre: "Benjamin", edad: 22, imagen: "person.circle.fill")
+            
             UserView(nombre: "Franco", edad: 29, imagen: "person.circle.fill")
-            UserView(nombre: "barbara", edad: 39, imagen: "person.circle.fill")
+            
+            UserView(nombre: "Barbara", edad: 39, imagen: "person.circle.fill")
+            
             UserView(nombre: "Victor", edad: 19, imagen: "person.circle.fill")
         }
         .padding()
@@ -24,14 +27,17 @@ struct UserView: View{
     let nombre : String
     let edad: Int
     let imagen: String
+    
 //Vista la interfaz
     var body: some View{
         VStack{
             Image(systemName:imagen)
                 .font(.system(size: 70, weight: .bold))
                     .foregroundColor(.yellow)
+            
             Text(nombre)
                 .font(.title)
+            
             Text(String(edad))
                 .font(.headline)
 
