@@ -8,74 +8,60 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.red.ignoresSafeArea() 
-
-            ScrollView(.horizontal) {
-                HStack(spacing: 30) {
-                    CajaAzulView()
-                    CajaVerdeView()
-                    CajaAmarillaView()
-                }
-                .padding(.horizontal)
+        ZStack{
+            Color.blue.ignoresSafeArea()
+            VStack{
+                Text("Swift Restaurant")
+                    .font(.headline)
+                    .bold()
+                    .foregroundColor(.white)
+                Text("la mejor comida del mundo")
+                    .foregroundColor(.orange)
+                    .font(.subheadline)
+                ComidaView()
+                BotonView()
+                
             }
+       
+            
         }
     }
 }
-
-struct CajaAzulView: View {
-    var body: some View {
-        VStack {
-            Text("Caja Azul")
-            Text("este es un texto de caja azul ")
-                   .multilineTextAlignment(.center)
-            HStack{
-                Image(systemName: "person.circle.fill")
-                Text("Benjamin Rojo")
-            }
-        }
-        .padding()
-        .frame(width: 140)
-        .background(.blue)
-        .cornerRadius(33)
-    }
-}
-
-struct CajaVerdeView: View {
-    var body: some View {
-        VStack {
-            Text("Caja Verde")
-            Text("este es un texto de la caja verde")
-            HStack{
-                Image(systemName: "person.circle.fill")
-                Text("Benjamin Rojo")
-            }
+struct ComidaView: View{
+    var body: some View{
+        HStack{
+            Image(systemName: "leaf")
+            Text("Hamburgesa")
+            Image(systemName: "star.fill")
+            Text("Estrella")
+            Image(systemName: "pizza")
+            Text("Pizza")
         }
         .padding()
-        .frame(width: 150)
-        .background(.green)
-        .cornerRadius(33)
     }
 }
 
-struct CajaAmarillaView: View {
-    var body: some View {
-        VStack {
-            Text("Caja Amarilla")
-            Text("este es un texto de la caja amarilla")
-                .multilineTextAlignment(.center)
-            HStack{
-                Image(systemName: "person.circle.fill")
-                Text("Benjamin Rojo")
+struct BotonView: View{
+    var body: some View{
+        HStack{
+            Button(action: {
+                print("ordeno")
+            }) {
+                Label("Ordenar", systemImage: "hand.thumbsup.fill")
             }
-         
+            .foregroundColor(.white)
+            Button(action: {
+                print("Favvvvv")
+            }) {
+                Label("Favoritos", systemImage: "star.fill")
+            }
+            .foregroundColor(.white)
         }
         .padding()
-        .frame(width: 150)
-        .background(.yellow)
-        .cornerRadius(33)
     }
 }
+
+
 
 #Preview {
     ContentView()
