@@ -9,7 +9,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack{
-            Color.blue.ignoresSafeArea()
+            Color.blue
+                 .edgesIgnoringSafeArea(.all)
+
+             RadialGradient(gradient: Gradient(colors: [.white, .blue]),
+                            center: .center,
+                            startRadius: 50,
+                            endRadius: 300)
             VStack{
                 Text("Swift Restaurant")
                     .font(.headline)
