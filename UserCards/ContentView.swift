@@ -12,7 +12,7 @@ struct ContentView: View {
             Color.red.ignoresSafeArea() 
 
             ScrollView(.horizontal) {
-                HStack(spacing: 40) {
+                HStack(spacing: 50) {
                     CajaAzulView()
                     CajaVerdeView()
                     CajaAmarillaView()
