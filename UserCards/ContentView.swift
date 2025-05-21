@@ -11,12 +11,13 @@ struct ContentView: View {
         ZStack {
             Color.red.ignoresSafeArea() 
 
-            HStack(spacing: 10) {
-                CajaAzulView()
-               
-                CajaVerdeView()
-               
-                CajaAmarillaView()
+            ScrollView(.horizontal) {
+                HStack(spacing: 40) {
+                    CajaAzulView()
+                    CajaVerdeView()
+                    CajaAmarillaView()
+                }
+                .padding(.horizontal)
             }
         }
     }
@@ -70,7 +71,7 @@ struct CajaAmarillaView: View {
          
         }
         .padding()
-        .frame(width: 140)
+        .frame(width: 150)
         .background(.yellow)
         .cornerRadius(12)
     }
