@@ -8,62 +8,50 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
-            Color.gray.ignoresSafeArea()
-            VStack{
-                Text("Swift City")
-                    .foregroundColor(.white)
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [.blue, .white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+
+            VStack {
+                Text("Mi rutina")
+                    .foregroundColor(.red)
                     .font(.title)
-                    .padding()
-                Text("15")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .padding()
-                Image(systemName: "cloud.bolt")
-                    .font(.system(size: 40, weight: .bold))
-                    .padding()
-                Button(action: {
-                    print("button tapped!!!")
-                }){
-                    Label("more info",systemImage: "star.fill")
-                }
-                WeatherDetailView()
+                ActivityRowView()
             }
-        
         }
     }
 }
 
-
-struct WeatherDayView: View{
-        let dia: String
-        let icono: String
-        let temp: String
-    
-        var body: some View{
-            VStack{
-                Text(dia)
-                Image(systemName: icono)
-                Text(temp)
-            }
-          
-        }
-    }
-    
-
-struct WeatherDetailView: View{
+struct ActivityRowView: View{
     var body: some View{
         VStack{
-            WeatherDayView(dia: "Lunes", icono: "cloud.sun.fill", temp: "30°")
-            WeatherDayView(dia: "Martes", icono: "cloud.sun.fill", temp: "22°")
-            WeatherDayView(dia: "Miercoles", icono: "cloud.sun.fill", temp: "20°")
-            WeatherDayView(dia: "Jueves", icono: "cloud.sun.fill", temp: "10°")
-            WeatherDayView(dia: "Viernes", icono: "cloud.sun.fill", temp: "44°")
-            WeatherDayView(dia: "Sabado", icono: "cloud.sun.fill", temp: "80°")
-            WeatherDayView(dia: "Domingo", icono: "cloud.sun.fill", temp: "30°")
+            RoutineDetailView(actividad: "despertar", hora: "8:00am", icono :  "star.fill")
+            RoutineDetailView(actividad: "desayuno", hora: "9:00am", icono :  "star.fill")
+            RoutineDetailView(actividad: "estudio", hora: "10:00am", icono : "star.fill")
+            RoutineDetailView(actividad: "como", hora: "4:00pm", icono : "star.fill")
+            RoutineDetailView(actividad: "free time", hora: "5:00pm", icono :  "star.fill")
         }
     }
 }
+
+struct RoutineDetailView: View{
+    let actividad : String
+    let hora : String
+    let icono : String
+    
+    var body: some View{
+        VStack{
+            Text(actividad)
+            Text(hora)
+            Image(systemName: icono)
+        }
+    }
+}
+
 
 #Preview {
     ContentView()
