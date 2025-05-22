@@ -9,83 +9,50 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack{
-            LinearGradient(
-                gradient: Gradient(colors: [.purple, .gray]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+            Color.blue.ignoresSafeArea()
             VStack{
-                Text("Agenda de Hoy")
-                    .foregroundColor(.yellow)
+                Text("Mi viaje")
+                    .foregroundColor(.white)
                     .font(.title)
-                EventoView()
-                BottonView()
+                Itinerario()
             }
-            .padding()
+            }
+            
         }
     }
-}
 
-struct EventRowView: View{
-    let hora : String
-    let tipo: String
-    let lugar: String
+struct TravelDayView : View{
+    let dia: String
+    let ciudad: String
     let icono: String
     var body: some View{
         HStack{
-            Text(hora)
-            Spacer()
-            Text(tipo)
-            Spacer()
-            Text(lugar)
-            Spacer()
+            Text(dia)
+            Text(ciudad)
             Image(systemName: icono)
         }
-    }
-}
-
-struct EventoView: View{
-    var body: some View{
-        VStack{
-            EventRowView( hora: "20:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
-                .padding()
-            EventRowView( hora: "10:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
-                .padding()
-            EventRowView( hora: "5:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
-                .padding()
-        }
         .padding()
-        .foregroundColor(.yellow)
-        .bold()
-        .italic()
     }
 }
 
-struct BottonView: View{
+struct Itinerario: View{
     var body: some View{
-        HStack{
-            Button(action:{
-                print("button tapped")
-            }){
-                Label("Asistir", systemImage: "heart.fill")
-                    .foregroundColor(.orange)
-                    .fontWeight(.bold)
-                    .font(.title2)
+            ScrollView(.horizontal) {
+                HStack{
+                TravelDayView(dia: "1 diciembre", ciudad: "Roma",icono:  "star.fill")
+                TravelDayView(dia: "2 diciembre", ciudad: "Finlandia",icono:  "star.fill")
+                TravelDayView(dia: "3 diciembre", ciudad: "España",icono:  "star.fill")
+                TravelDayView(dia: "4 diciembre", ciudad: "Portugal",icono:  "star.fill")
+                TravelDayView(dia: "5 diciembre", ciudad: "Sweeden",icono:  "star.fill")
             }
-            .padding()
-            Button(action:{
-                print("button tapped")
-            }){
-                Label("No voy asisitir", systemImage: "heart.slash.fill")
-                    .foregroundColor(.orange)
-                    .fontWeight(.bold)
-                    .font(.title2)
-            }
-            .padding()
+            .padding(.horizontal)
+            .foregroundColor(.orange)
+            .bold()
         }
+        
     }
 }
+
 
 
 #Preview {
