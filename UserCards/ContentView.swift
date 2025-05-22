@@ -10,7 +10,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             LinearGradient(
-                gradient: Gradient(colors: [.green, .gray]),
+                gradient: Gradient(colors: [.purple, .gray]),
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -20,7 +20,9 @@ struct ContentView: View {
                     .foregroundColor(.yellow)
                     .font(.title)
                 EventoView()
+                BottonView()
             }
+            .padding()
         }
     }
 }
@@ -47,13 +49,43 @@ struct EventoView: View{
     var body: some View{
         VStack{
             EventRowView( hora: "20:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
+                .padding()
             EventRowView( hora: "10:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
+                .padding()
             EventRowView( hora: "5:00hrs", tipo: "Conferencia", lugar: "CDMX", icono: "star.fill")
+                .padding()
         }
-       
+        .padding()
+        .foregroundColor(.yellow)
+        .bold()
+        .italic()
     }
 }
 
+struct BottonView: View{
+    var body: some View{
+        HStack{
+            Button(action:{
+                print("button tapped")
+            }){
+                Label("Asistir", systemImage: "heart.fill")
+                    .foregroundColor(.orange)
+                    .fontWeight(.bold)
+                    .font(.title2)
+            }
+            .padding()
+            Button(action:{
+                print("button tapped")
+            }){
+                Label("No voy asisitir", systemImage: "heart.slash.fill")
+                    .foregroundColor(.orange)
+                    .fontWeight(.bold)
+                    .font(.title2)
+            }
+            .padding()
+        }
+    }
+}
 
 
 #Preview {
