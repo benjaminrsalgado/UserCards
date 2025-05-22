@@ -9,66 +9,63 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack{
-            Color.blue
-                 .edgesIgnoringSafeArea(.all)
-
-             RadialGradient(gradient: Gradient(colors: [.white, .blue]),
-                            center: .center,
-                            startRadius: 50,
-                            endRadius: 300)
+            Color.gray.ignoresSafeArea()
             VStack{
-                Text("Swift Restaurant")
-                    .font(.headline)
-                    .bold()
+                Text("Swift City")
                     .foregroundColor(.white)
-                Text("la mejor comida del mundo")
-                    .foregroundColor(.orange)
-                    .font(.subheadline)
-                ComidaView()
-                BotonView()
-                
+                    .font(.title)
+                    .padding()
+                Text("15")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .padding()
+                Image(systemName: "cloud.bolt")
+                    .font(.system(size: 40, weight: .bold))
+                    .padding()
+                Button(action: {
+                    print("button tapped!!!")
+                }){
+                    Label("more info",systemImage: "star.fill")
+                }
+                WeatherDetailView()
             }
-       
-            
+        
         }
     }
 }
-struct ComidaView: View{
+
+
+struct WeatherDayView: View{
+        let dia: String
+        let icono: String
+        let temp: String
+    
+        var body: some View{
+            VStack{
+                Text(dia)
+                Image(systemName: icono)
+                Text(temp)
+            }
+          
+        }
+    }
+    
+
+struct WeatherDetailView: View{
     var body: some View{
-        HStack{
-            Image(systemName: "leaf")
-            Text("Hamburgesa")
-            Image(systemName: "star.fill")
-            Text("Estrella")
-            Image(systemName: "pizza")
-            Text("Pizza")
+        VStack{
+            WeatherDayView(dia: "Lunes", icono: "cloud.sun.fill", temp: "30°")
+            WeatherDayView(dia: "Martes", icono: "cloud.sun.fill", temp: "22°")
+            WeatherDayView(dia: "Miercoles", icono: "cloud.sun.fill", temp: "20°")
+            WeatherDayView(dia: "Jueves", icono: "cloud.sun.fill", temp: "10°")
+            WeatherDayView(dia: "Viernes", icono: "cloud.sun.fill", temp: "44°")
+            WeatherDayView(dia: "Sabado", icono: "cloud.sun.fill", temp: "80°")
+            WeatherDayView(dia: "Domingo", icono: "cloud.sun.fill", temp: "30°")
         }
-        .padding()
     }
 }
-
-struct BotonView: View{
-    var body: some View{
-        HStack{
-            Button(action: {
-                print("ordeno")
-            }) {
-                Label("Ordenar", systemImage: "hand.thumbsup.fill")
-            }
-            .foregroundColor(.white)
-            Button(action: {
-                print("Favvvvv")
-            }) {
-                Label("Favoritos", systemImage: "star.fill")
-            }
-            .foregroundColor(.white)
-        }
-        .padding()
-    }
-}
-
-
 
 #Preview {
     ContentView()
 }
+
