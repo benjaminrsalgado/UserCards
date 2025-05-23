@@ -26,6 +26,7 @@ struct ContentView: View {
     }
             
 }
+//Usando la vista compuesta
 struct MenuView: View{
     var body: some View{
         ScrollView(.horizontal){
@@ -41,7 +42,7 @@ struct MenuView: View{
         }
     }
 }
-
+// Vista compuesta
 struct PlatilloCardView: View{
     let nombrePlatillo: String
     let emoji: String
