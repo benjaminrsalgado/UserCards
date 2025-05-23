@@ -10,47 +10,53 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             LinearGradient(
-                    gradient: Gradient(colors: [.black, .gray]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ).ignoresSafeArea()
-            VStack{
-                Text("Mis peliculas favoritas")
-                    .font(.title)
-                    .foregroundColor(.white)
-                PeliculasView()
-            }
-            }
-            }
+                gradient: Gradient(colors: [.blue, .green]),
+                startPoint: .top,
+                endPoint: .bottom
+            ).ignoresSafeArea()
             
+            VStack{
+                Text("Menu del dia")
+                    .foregroundColor(.white)
+                    .font(.title)
+                MenuView()
+            }
+
         }
-struct PeliculasView: View{
+    }
+            
+}
+struct MenuView: View{
     var body: some View{
         ScrollView(.horizontal){
             HStack{
-                PeliculaCardView(nombre: "Harry Potter", icono: "star.fill")
-                PeliculaCardView(nombre: "The Hobbit", icono: "star.fill")
-                PeliculaCardView(nombre: "Lord of the Rings", icono: "star.fill")
+                PlatilloCardView(nombrePlatillo: "Tacos", emoji: "takeoutbag.and.cup.and.straw.fill"
+, precio: "$20")
+                PlatilloCardView(nombrePlatillo: "Sushi", emoji: "leaf.fill", precio: "$15")
+                PlatilloCardView(nombrePlatillo: "Pizza", emoji: "fork.knife.circle.fill", precio: "$12")
+                PlatilloCardView(nombrePlatillo: "Hamburgesa", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "$40")
+                PlatilloCardView(nombrePlatillo: "Mexican Egss", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "22")
             }
             .padding()
         }
     }
 }
 
-struct PeliculaCardView: View{
-    let nombre: String
-    let icono: String
+struct PlatilloCardView: View{
+    let nombrePlatillo: String
+    let emoji: String
+    let precio: String
     var body: some View{
         VStack{
-            Text(nombre)
-            Image(systemName:icono)
+            Image(systemName: emoji)
+            Text(nombrePlatillo)
+            Text(precio)
         }
         .padding()
-        .background(.orange)
-        .cornerRadius(22)
+        .background(.white)
+        .cornerRadius(20)
     }
 }
-
 
 
 
