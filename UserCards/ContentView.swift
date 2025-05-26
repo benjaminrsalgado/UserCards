@@ -37,6 +37,8 @@ struct MenuView: View{
                 PlatilloCardView(nombrePlatillo: "Pizza", emoji: "fork.knife.circle.fill", precio: "$12")
                 PlatilloCardView(nombrePlatillo: "Hamburgesa", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "$40")
                 PlatilloCardView(nombrePlatillo: "Mexican Egss", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "22")
+                PlatilloCardView(nombrePlatillo: "met", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "18")
+                PlatilloCardView(nombrePlatillo: "eggs", emoji: "takeoutbag.and.cup.and.straw.fill", precio: "22")
             }
             .padding()
         }
